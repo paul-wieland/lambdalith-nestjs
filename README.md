@@ -13,6 +13,11 @@
 - 🚀 **Deploy in minutes**, not hours, days, or weeks
 
 
+### ⚠️ Limitations
+- 🧊 Cold starts can take 2–3 seconds, especially in Dockerized Lambdas
+- 🧠 Increased complexity from bundling a full NestJS app into a single Lambda (Lambdalith)
+- 🧪 Local testing requires a different entry file (See `main.local.ts`, NestJS init without `codegenie`)
+
 ## 🏗 Architecture
 
 ![Architecture](assets/lambdalith-nestjs.drawio.png)
@@ -23,6 +28,16 @@
 4. [@codegenie/serverless-express](https://www.npmjs.com/package/@codegenie/serverless-express) handles the incoming event. 
 5. Codegenie bootstraps a NestJS app and forwards the request for processing.
 
+## ✅ Testing
+
+Once the backend is deployed, you can test the setup by making HTTPS requests to the API Gateway:
+
+```
+curl <API-GATEWAY-BASE-URL>/prod/hello
+curl <API-GATEWAY-BASE-URL>/prod/world
+```
+
+Both endpoints should return a valid response if the deployment was successful. This proofs, that the routing is properly configured.
 
 ### 🛠️ Deploy Instructions
 ```
