@@ -11,7 +11,7 @@ export class LambdalithStack extends cdk.Stack {
 
     const lambdaFunction = new lambda.DockerImageFunction(this, id, {
       code: lambda.DockerImageCode.fromImageAsset(
-          path.join(__dirname, "../../backend"),
+          path.join(__dirname, "../../backend-nestjs"),
       ),
       architecture: Architecture.ARM_64,
       memorySize: 256,
