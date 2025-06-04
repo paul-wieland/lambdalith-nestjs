@@ -57,3 +57,22 @@ cdk bootstrap
 # Deploy the stack
 cdk deploy
 ```
+
+### ⚡ Why Was It So Fast?
+
+Getting the Lambdalith up and running was incredibly fast thanks to a streamlined development workflow:
+
+1. Setup the NestJS project
+   ```bash
+   nest new backend --language=typescript
+   ```
+
+2. Integrate [@codegenie/serverless-express](https://www.npmjs.com/package/@codegenie/serverless-express) in [main.ts](backend-nestjs/src/main.ts)
+3. Add [Dockerfile](backend-nestjs/Dockerfile)
+4. Setup CDK project
+    ```bash
+    cdk init app
+   ```
+5. Add 30 lines of infrastructure code for lambda and api gateway in [lambdalith-stack.ts](infrastructure/lib/lambdalith-stack.ts)
+
+💡 Thanks to this clean setup, the full backend was up and running in under an hour.
